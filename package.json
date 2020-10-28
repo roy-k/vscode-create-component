@@ -2,10 +2,10 @@
     "name": "create-component",
     "displayName": "create-component",
     "description": "create component from editor folder context",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "roy",
     "engines": {
-        "vscode": "^1.45.0"
+        "vscode": "^1.40.0"
     },
     "categories": [
         "Other"
@@ -45,7 +45,7 @@
         "@types/glob": "^7.1.1",
         "@types/mocha": "^7.0.2",
         "@types/node": "^13.11.0",
-        "@types/vscode": "^1.45.0",
+        "@types/vscode": "^1.40.0",
         "@typescript-eslint/eslint-plugin": "^2.30.0",
         "@typescript-eslint/parser": "^2.30.0",
         "eslint": "^6.8.0",

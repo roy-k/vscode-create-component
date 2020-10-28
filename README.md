@@ -26,3 +26,7 @@ none
 
 - init project
 - add react support
+
+### 0.1.1
+
+- change vscode engines to 1.40.0
