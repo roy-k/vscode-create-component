@@ -2,7 +2,7 @@
     "name": "create-component",
     "displayName": "create-component",
     "description": "create component from editor folder context",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "publisher": "roy",
     "engines": {
         "vscode": "^1.40.0"
@@ -12,20 +12,29 @@
     ],
     "icon": "assets/icon.png",
     "activationEvents": [
-        "onCommand:extension.createComponent"
+        "onCommand:extension.reactCreate",
+        "onCommand:extension.vueCreate"
     ],
     "main": "./out/extension.js",
     "contributes": {
         "commands": [
             {
-                "command": "extension.createComponent",
-                "title": "Create Component"
+                "command": "extension.reactCreate",
+                "title": "react create"
+            },
+            {
+                "command": "extension.vueCreate",
+                "title": "vue create"
             }
         ],
         "menus": {
             "explorer/context": [
                 {
-                    "command": "extension.createComponent",
+                    "command": "extension.reactCreate",
+                    "group": "1_modification"
+                },
+                {
+                    "command": "extension.vueCreate",
                     "group": "1_modification"
                 }
             ]
@@ -42,6 +51,7 @@
         "publish": "vsce publish"
     },
     "devDependencies": {
+        "@types/fs-extra": "^9.0.1",
         "@types/glob": "^7.1.1",
         "@types/mocha": "^7.0.2",
         "@types/node": "^13.11.0",
@@ -49,10 +59,12 @@
         "@typescript-eslint/eslint-plugin": "^2.30.0",
         "@typescript-eslint/parser": "^2.30.0",
         "eslint": "^6.8.0",
-        "@types/fs-extra": "^9.0.1",
         "glob": "^7.1.6",
         "mocha": "^7.1.2",
         "typescript": "^3.8.3",
         "vscode-test": "^1.3.0"
+    },
+    "dependencies": {
+        "case": "^1.6.3"
     }
 }

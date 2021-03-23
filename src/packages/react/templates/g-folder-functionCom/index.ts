@@ -1,7 +1,7 @@
 import * as fs from 'fs'
 const fsp = fs.promises
 
-import { REACT_FILE_SUFFIX, STYLE_FILE_SUFFIX } from '../../types'
+import { REACT_FILE_SUFFIX, STYLE_FILE_SUFFIX } from '../../../../types'
 import g_functionCom from '../g-functionCom'
 
 const styleSuffixes = ['less', 'sass', 'scss', 'styl']

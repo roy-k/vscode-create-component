@@ -1,5 +1,5 @@
-import { format2CamelCase } from "../lib/util"
-import { REACT_FILE_SUFFIX } from "../types"
+import { format2CamelCase } from '../../../lib/util'
+import { REACT_FILE_SUFFIX } from '../../../types'
 
 export const EXT_NAMES = ['tsx', 'jsx']
 

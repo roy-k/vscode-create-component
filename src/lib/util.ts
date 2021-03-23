@@ -15,3 +15,24 @@ export function format2CamelCase(name: string) {
     }
     return `${name.charAt(0).toUpperCase()}${name.slice(1)}`
 }
+
+export type OptionMap = {
+    [props: string]: string
+}
+export type OptionSet = {
+    [props: string]: boolean
+}
+export function getOptions(options: string, optionMap: OptionMap): OptionSet {
+    if (!options || options.charAt(0) !== '-' || options.length < 2) {
+        return {}
+    }
+    return options
+        .slice(1)
+        .split('')
+        .reduce<OptionSet>((acc, item) => {
+            if (optionMap[item]) {
+                acc[optionMap[item]] = true
+            }
+            return acc
+        }, {})
+}
