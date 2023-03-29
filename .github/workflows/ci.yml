@@ -10,11 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 16.x
       - name: Install dependencies
         run: npm Install
         env:
@@ -22,7 +22,7 @@ jobs:
           npm_config_arch: ${{ matrix.npm_config_arch }}
       - name: Build
         run: npm run compile && npx vsce package
-        uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           path: "*.vsix"
   publish:
@@ -30,7 +30,7 @@ jobs:
     needs: build
     if: success() && startsWith( github.ref, 'refs/tags/')
     steps:
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
       - run: npx vsce publish --packagePath $(find . -iname *.vsix)
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
