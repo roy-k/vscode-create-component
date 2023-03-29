@@ -44,7 +44,6 @@
     "vscode:prepublish": "yarn run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "test": "node ./out/test/runTest.js",
     "build": "vsce package",
     "publish": "vsce publish"
   },
@@ -55,7 +54,6 @@
     "@types/vscode": "^1.76.0",
     "eslint": "^6.8.0",
     "glob": "^7.1.6",
-    "mocha": "^7.1.2",
     "typescript": "^5.0.2",
     "vscode-test": "^1.6.1"
   },
