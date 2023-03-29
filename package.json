@@ -44,7 +44,8 @@
     "vscode:prepublish": "yarn run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "build": "vsce package",
+    "package": "vsce package",
+    "build": "npm run compile && npm run package",
     "publish": "vsce publish"
   },
   "devDependencies": {
