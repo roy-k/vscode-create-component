@@ -2,7 +2,7 @@
   "name": "create-component",
   "displayName": "create-component",
   "description": "create component from editor folder context",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "publisher": "roy",
   "engines": {
     "vscode": "1.76.0"

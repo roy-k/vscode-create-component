@@ -1,28 +1,21 @@
 import * as fs from 'fs'
 const fsp = fs.promises
 
-import { REACT_FILE_SUFFIX, STYLE_FILE_SUFFIX } from '../../../../types'
+import { REACT_FILE_SUFFIX } from '../../../../types'
 import g_functionCom from '../g-functionCom'
 
-const styleSuffixes = ['less', 'sass', 'scss', 'styl']
-
-export async function g_component_dir(args: string[], targetPath: string) {
+export async function g_component_dir(
+  args: string[],
+  targetPath: string,
+  isPage = false
+) {
   // 这样可以直接用name 做文件夹名, index加后缀 , 名称.less
   let suffix: REACT_FILE_SUFFIX = 'tsx'
-  let [name, styleSuffix, md, ...rest] = args
+  let [name] = args
 
-  // tsx 可以省略,
-  if (styleSuffix === 'jsx') {
-    suffix = 'jsx'
-    styleSuffix = styleSuffixes.includes(md) ? md : 'scss'
-    md = rest[0]
-  } else {
-    styleSuffix = styleSuffixes.includes(styleSuffix) ? styleSuffix : 'scss'
-  }
-
-  const indexName = `index.${suffix}`
-  const styleName = `${name}${md ? '.module' : ''}.${styleSuffix}`
-  const styleImportStr = `import${md ? ' styles from' : ''} './${styleName}'`
+  const indexName = `index${isPage ? '.page' : ''}.${suffix}`
+  const styleName = `index.module.scss`
+  const styleImportStr = `import styles from './index.module.scss'`
 
   const dirPath = `${targetPath}/${name}`
   const indexPath = `${dirPath}/${indexName}`

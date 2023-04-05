@@ -4,7 +4,7 @@ import { REACT_FILE_SUFFIX } from '../../../types'
 export const EXT_NAMES = ['tsx', 'jsx']
 
 function jsxTpl(name: string, deps?: string) {
-    return `import React from 'react'
+  return `import React from 'react'
 
 ${deps || ''}
 
@@ -21,11 +21,11 @@ export default ${name}
 }
 
 function tsxTpl(name: string, deps?: string) {
-    return `import React from 'react'
+  return `import React from 'react'
     
 ${deps || ''}
 
-export interface ${name}Props {}
+export type ${name}Props {}
 function ${name}(props: ${name}Props) {
   return (
     <div>
@@ -38,7 +38,11 @@ export default ${name}
 `
 }
 
-export default function g_functionCom(name: string, type: REACT_FILE_SUFFIX, deps?: string) {
-    const formatName = format2CamelCase(name)
-    return type === 'tsx' ? tsxTpl(formatName, deps) : jsxTpl(formatName, deps)
+export default function g_functionCom(
+  name: string,
+  type: REACT_FILE_SUFFIX,
+  deps?: string
+) {
+  const formatName = format2CamelCase(name)
+  return type === 'tsx' ? tsxTpl(formatName, deps) : jsxTpl(formatName, deps)
 }
