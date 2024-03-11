@@ -3,15 +3,17 @@
 import * as vscode from 'vscode'
 
 import reactCommand from './packages/react'
-import { vueHandler } from './packages/vue'
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-    // createComponent
-    const reactFun = vscode.commands.registerCommand('extension.reactCreate', reactCommand)
-    const vueFun = vscode.commands.registerCommand('extension.vueCreate', vueHandler)
+  // createComponent
+  const reactFun = vscode.commands.registerCommand(
+    'extension.reactCreate',
+    reactCommand
+  )
+  // const vueFun = vscode.commands.registerCommand('extension.vueCreate', vueHandler)
 
-    context.subscriptions.push(...[reactFun, vueFun])
+  context.subscriptions.push(...[reactFun])
 }
 
 // this method is called when your extension is deactivated

@@ -2,7 +2,7 @@
   "name": "create-component",
   "displayName": "create-component",
   "description": "create component from editor folder context",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "roy",
   "engines": {
     "vscode": "1.76.0"
@@ -21,20 +21,12 @@
       {
         "command": "extension.reactCreate",
         "title": "react create"
-      },
-      {
-        "command": "extension.vueCreate",
-        "title": "vue create"
       }
     ],
     "menus": {
       "explorer/context": [
         {
           "command": "extension.reactCreate",
-          "group": "1_modification"
-        },
-        {
-          "command": "extension.vueCreate",
           "group": "1_modification"
         }
       ]
