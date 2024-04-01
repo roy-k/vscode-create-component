@@ -1,12 +1,13 @@
 {
-  "name": "create-component",
-  "displayName": "create-component",
-  "description": "create component from editor folder context",
+  "name": "c-react-component",
+  "displayName": "c-react-component",
+  "description": "创建react 组件",
   "version": "1.0.2",
-  "publisher": "roy",
+  "publisher": "kuangao",
   "engines": {
-    "vscode": "1.76.0"
+    "vscode": "^1.87.0"
   },
+  "repository": "https://github.com/roy-k/vscode-create-component",
   "categories": [
     "Other"
   ],
@@ -47,10 +48,10 @@
     "@types/vscode": "^1.76.0",
     "eslint": "^6.8.0",
     "glob": "^7.1.6",
-    "typescript": "^5.0.2",
-    "vsce": "2.15.0"
+    "typescript": "^5.0.2"
   },
   "dependencies": {
+    "@vscode/vsce": "^2.24.0",
     "case": "^1.6.3"
   }
 }

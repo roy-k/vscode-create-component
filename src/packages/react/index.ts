@@ -10,7 +10,7 @@ export default function (param: any) {
 
   const options = {
     prompt: '请输入组件名: ',
-    placeHolder: '组件名称 / 组件名.page',
+    placeHolder: '会生成 index.ts, 组件名.tsx, 组件名.module.scss 三个文件',
   }
 
   // 调出系统输入框获取组件名

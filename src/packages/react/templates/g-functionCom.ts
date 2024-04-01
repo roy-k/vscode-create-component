@@ -1,48 +1,35 @@
-import { format2CamelCase } from '../../../lib/util'
-import { REACT_FILE_SUFFIX } from '../../../types'
+import { format2underscore_naming_convention } from '../../../lib/util'
 
-export const EXT_NAMES = ['tsx', 'jsx']
-
-function jsxTpl(name: string, deps?: string) {
-  return `import React from 'react'
-
-${deps || ''}
-
-function ${name}(props) {
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default ${name}
-`
-}
+export const EXT_NAMES = ['tsx']
 
 function tsxTpl(name: string, deps?: string) {
-  return `import React from 'react'
+  return `import React from 'react' 
+import styles from './index.module.scss'
     
 ${deps || ''}
 
-export type ${name}Props {}
-function ${name}(props: ${name}Props) {
+export type ${name}Props = {}
+export function ${name}(props: ${name}Props) {
   return (
-    <div>
+    <div className={styles.${format2underscore_naming_convention(name)}}>
       
     </div>
   )
 }
-
-export default ${name}
 `
 }
 
-export default function g_functionCom(
-  name: string,
-  type: REACT_FILE_SUFFIX,
-  deps?: string
-) {
-  const formatName = format2CamelCase(name)
-  return type === 'tsx' ? tsxTpl(formatName, deps) : jsxTpl(formatName, deps)
+export function getComponentTpl(name: string) {
+  return tsxTpl(name)
+}
+
+export function getIndexTpl(name: string) {
+  return `export { ${name} } from './${name}'`
+}
+
+export function getScssTpl(name: string) {
+  return `
+.${format2underscore_naming_convention(name)} {
+}
+`
 }
